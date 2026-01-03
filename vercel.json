@@ -1,21 +1,21 @@
 {
-"version": 2,
-"builds": [
-{
-"src": "client/package.json",
-"use": "@vercel/static-build",
-"config": {
-"distDir": "dist"
-}
-}
-],
-"routes": [
-{
-"handle": "filesystem"
-},
-{
-"src": "/(.*)",
-"dest": "/client/index.html"
-}
-]
+  "version": 2,
+  "builds": [
+    {
+      "src": "client/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/client/index.html",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      }
+    }
+  ],
+  "env": {
+    "VERCEL_BUILD_COMMAND": "npm run build:client"
+  }
 }
