@@ -2,20 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "client/index.html",
+      "src": "client/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/src/(.*)",
+      "dest": "/client/src/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/client/dist/assets/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/client/index.html",
-      "headers": {
-        "Content-Type": "text/html; charset=utf-8"
-      }
+      "dest": "/client/index.html"
     }
-  ],
-  "env": {
-    "VERCEL_BUILD_COMMAND": "npm run build:client"
-  }
+  ]
 }
