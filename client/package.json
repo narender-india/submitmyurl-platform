@@ -10,11 +10,5 @@
   },
   "dependencies": {
     "vite": "^7.1.9"
-    {
-  "scripts": {
-    "build:client": "cd client && npm run build"
   }
 }
-  }
-}
-
